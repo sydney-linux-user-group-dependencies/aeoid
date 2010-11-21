@@ -173,7 +173,7 @@ class StaticHandler(webapp.RequestHandler):
   
   def get(self, filepath, fileext):
     # build full system path to requested file
-    resourcepath = os.path.join( os.path.dirname(__file__), 'resources', filepath + '.' + fileext )
+    resourcepath = os.path.join( os.path.abspath(os.path.dirname(__file__)), 'resources', filepath + '.' + fileext )
     
     # only allow specified file extensions
     if not self.allowed_exts.has_key(fileext):
